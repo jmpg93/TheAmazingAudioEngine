@@ -103,6 +103,7 @@
     _playhead = (int32_t)((currentTime / self.duration) * _lengthInFrames) % _lengthInFrames;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void notifyLoopRestart(void *userInfo, int length) {
     AEMemoryBufferPlayer *THIS = (__bridge AEMemoryBufferPlayer*)*(void**)userInfo;
     
@@ -110,6 +111,7 @@ static void notifyLoopRestart(void *userInfo, int length) {
 }
 
 struct notifyPlaybackStopped_arg { __unsafe_unretained AEMemoryBufferPlayer * THIS; __unsafe_unretained AEAudioController * audioController; };
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void notifyPlaybackStopped(void *userInfo, int length) {
     struct notifyPlaybackStopped_arg * arg = (struct notifyPlaybackStopped_arg*)userInfo;
     AEMemoryBufferPlayer *THIS = arg->THIS;
@@ -124,6 +126,7 @@ static void notifyPlaybackStopped(void *userInfo, int length) {
     THIS->_playhead = 0;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus renderCallback(__unsafe_unretained AEMemoryBufferPlayer *THIS, __unsafe_unretained AEAudioController *audioController, const AudioTimeStamp *time, UInt32 frames, AudioBufferList *audio) {
     int32_t playhead = THIS->_playhead;
     int32_t originalPlayhead = playhead;

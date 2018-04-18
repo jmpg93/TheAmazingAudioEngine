@@ -903,6 +903,7 @@
 		4C215CF71523A7D600D36CAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TheAmazingAudioEngine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -943,6 +944,7 @@
 		4C215CF81523A7D600D36CAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TheAmazingAudioEngine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

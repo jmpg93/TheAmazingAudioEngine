@@ -317,6 +317,7 @@ static OSStatus filterCallback(__unsafe_unretained AEAudioUnitFilter *THIS,
     return filterCallback;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus audioUnitRenderCallback(void                       *inRefCon,
                                         AudioUnitRenderActionFlags *ioActionFlags,
                                         const AudioTimeStamp       *inTimeStamp,

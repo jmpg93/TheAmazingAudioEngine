@@ -51,6 +51,7 @@ typedef void (^AEBlockSchedulerResponseBlock)();
  *
  *  Then begin scheduling blocks using @link scheduleBlock:atTime:timingContext:identifier: @endlink.
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEBlockScheduler : NSObject <AEAudioTimingReceiver>
 
 /*!

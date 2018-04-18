@@ -46,7 +46,6 @@
     return [[AEBlockChannel alloc] initWithBlock:block];
 }
 
-
 static OSStatus renderCallback(__unsafe_unretained AEBlockChannel *THIS,
                                __unsafe_unretained AEAudioController *audioController,
                                const AudioTimeStamp     *time,

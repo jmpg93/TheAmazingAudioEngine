@@ -38,6 +38,7 @@ extern "C" {
  *  corresponding audio unit will be initialised, ready for use
  *
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEAudioUnitFilter : NSObject <AEAudioFilter>
 
 /*!

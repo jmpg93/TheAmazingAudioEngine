@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AEAudioUnitFilter.h"
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEReverbFilter : AEAudioUnitFilter
 
 - (instancetype)init;

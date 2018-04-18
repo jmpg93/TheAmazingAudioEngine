@@ -42,7 +42,6 @@
     return [[AEBlockFilter alloc] initWithBlock:block];
 }
 
-
 static OSStatus filterCallback(__unsafe_unretained AEBlockFilter *THIS,
                                __unsafe_unretained AEAudioController *audioController,
                                AEAudioFilterProducer producer,

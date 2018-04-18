@@ -37,6 +37,7 @@ typedef void (^AEBlockChannelBlock)(const AudioTimeStamp     *time,
 /*!
  * Block channel: Utility class to allow use of a block to generate audio
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEBlockChannel : NSObject <AEAudioPlayable>
 
 /*!

@@ -10,6 +10,7 @@
 
 #import "AEAudioUnitFilter.h"
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEVarispeedFilter : AEAudioUnitFilter
 
 - (instancetype)init;

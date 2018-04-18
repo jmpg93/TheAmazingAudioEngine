@@ -38,6 +38,7 @@ typedef void (^AEBlockAudioReceiverBlock)(void                     *source,
 /*!
  * Block audio receiver: Utility class to allow use of a block to receive audio
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEBlockAudioReceiver : NSObject <AEAudioReceiver>
 
 /*!

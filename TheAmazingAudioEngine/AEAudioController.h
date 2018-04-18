@@ -526,6 +526,7 @@ typedef enum {
  *     Note that all these can be added/removed during operation as well.
  *  4. Call @link start: @endlink to begin processing audio.
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEAudioController : NSObject
 
 #pragma mark - Setup and start/stop

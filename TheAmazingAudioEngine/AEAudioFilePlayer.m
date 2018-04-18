@@ -314,6 +314,7 @@ UInt32 AEAudioFilePlayerGetPlayhead(__unsafe_unretained AEAudioFilePlayer * THIS
     AECheckOSStatus(result, "AudioUnitSetProperty(kAudioUnitProperty_ScheduleStartTimeStamp)");
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus renderCallback(__unsafe_unretained AEAudioFilePlayer *THIS,
                                __unsafe_unretained AEAudioController *audioController,
                                const AudioTimeStamp     *time,
@@ -389,6 +390,7 @@ static OSStatus renderCallback(__unsafe_unretained AEAudioFilePlayer *THIS,
     return renderCallback;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void AEAudioFilePlayerNotifyCompletion(void *userInfo, int userInfoLength) {
     AEAudioFilePlayer *THIS = (__bridge AEAudioFilePlayer*)*(void**)userInfo;
     if ( !OSAtomicCompareAndSwap32(YES, NO, &THIS->_playbackStoppedCallbackScheduled) ) {

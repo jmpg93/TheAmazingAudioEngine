@@ -205,12 +205,13 @@ typedef struct _channel_group_t {
 /*!
  * Message queue
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEAudioControllerMessageQueue : AEMessageQueue
 @property (nonatomic, weak) AEAudioController * audioController;
 @end
 
 #pragma mark -
-
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEAudioControllerProxy : NSProxy
 - (id)initWithAudioController:(AEAudioController*)audioController;
 @property (nonatomic, weak) AEAudioController *audioController;
@@ -308,6 +309,7 @@ typedef struct __channel_producer_arg_t {
     int nextFilterIndex;
 } channel_producer_arg_t;
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus channelAudioProducer(void *userInfo, AudioBufferList *audio, UInt32 *frames) {
     channel_producer_arg_t *arg = (channel_producer_arg_t*)userInfo;
     AEChannelRef channel = arg->channel;
@@ -358,6 +360,7 @@ static OSStatus channelAudioProducer(void *userInfo, AudioBufferList *audio, UIn
     return status;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus renderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData) {
     AEChannelRef channel = (AEChannelRef)inRefCon;
     
@@ -446,6 +449,7 @@ typedef struct __input_producer_arg_t {
     int nextFilterIndex;
 } input_producer_arg_t;
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus inputAudioProducer(void *userInfo, AudioBufferList *audio, UInt32 *frames) {
     input_producer_arg_t *arg = (input_producer_arg_t*)userInfo;
     __unsafe_unretained AEAudioController *THIS = (__bridge AEAudioController*)arg->THIS;
@@ -493,6 +497,7 @@ static OSStatus inputAudioProducer(void *userInfo, AudioBufferList *audio, UInt3
     return noErr;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus inputAvailableCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData) {
     __unsafe_unretained AEAudioController *THIS = (__bridge AEAudioController *)inRefCon;
     
@@ -512,6 +517,7 @@ static OSStatus inputAvailableCallback(void *inRefCon, AudioUnitRenderActionFlag
     return noErr;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus groupRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData) {
     AEChannelRef channel = (AEChannelRef)inRefCon;
     AEChannelGroupRef group = (AEChannelGroupRef)channel->ptr;
@@ -533,6 +539,7 @@ static OSStatus groupRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionF
     return noErr;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus topRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData) {
     
     __unsafe_unretained AEAudioController *THIS = (__bridge AEAudioController *)inRefCon;
@@ -579,6 +586,7 @@ static OSStatus topRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionFla
     return noErr;
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void serviceAudioInput(__unsafe_unretained AEAudioController * THIS, const AudioTimeStamp *outputBusTimeStamp, const AudioTimeStamp *inputBusTimeStamp, UInt32 inNumberFrames) {
     
     if ( !THIS->_inputAudioBufferList ) {
@@ -725,6 +733,7 @@ static void serviceAudioInput(__unsafe_unretained AEAudioController * THIS, cons
 #ifdef DEBUG
 
 // Performance monitoring in debug mode
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static OSStatus ioUnitRenderNotifyCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList *ioData) {
     
     __unsafe_unretained AEAudioController * THIS = (__bridge AEAudioController*)inRefCon;
@@ -2375,7 +2384,7 @@ AudioTimeStamp AEAudioControllerCurrentAudioTimestamp(__unsafe_unretained AEAudi
         if ( [notification.userInfo[AVAudioSessionInterruptionTypeKey] intValue] == AVAudioSessionInterruptionTypeEnded ) {
             NSLog(@"TAAE: Audio session interruption ended");
             _interrupted = NO;
-            
+
             if ( [[UIApplication sharedApplication] applicationState] != UIApplicationStateBackground || _started ) {
                 // make sure we are again the active session
                 NSError *error = nil;
@@ -2495,6 +2504,7 @@ AudioTimeStamp AEAudioControllerCurrentAudioTimestamp(__unsafe_unretained AEAudi
 }
 
 #if TARGET_OS_IPHONE
+NS_EXTENSION_UNAVAILABLE_IOS("asd")
 static void interAppConnectedChangeCallback(void *inRefCon, AudioUnit inUnit, AudioUnitPropertyID inID, AudioUnitScope inScope, AudioUnitElement inElement) {
     dispatch_async(dispatch_get_main_queue(), ^{
         AEAudioController *THIS = (__bridge AEAudioController*)inRefCon;
@@ -2518,7 +2528,7 @@ static void interAppConnectedChangeCallback(void *inRefCon, AudioUnit inUnit, Au
 }
 #endif
 
-
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void audioUnitStreamFormatChanged(void *inRefCon, AudioUnit inUnit, AudioUnitPropertyID inID, AudioUnitScope inScope, AudioUnitElement inElement) {
     dispatch_async(dispatch_get_main_queue(), ^{
         AEAudioController *THIS = (__bridge AEAudioController*)inRefCon;
@@ -4118,6 +4128,7 @@ static void removeCallbackFromTable(__unsafe_unretained AEAudioController *THIS,
     return [self associatedObjectsFromTable:&group->channel->callbacks matchingFlag:flags];
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void handleCallbacksForChannel(AEChannelRef channel, const AudioTimeStamp *inTimeStamp, UInt32 inNumberFrames, AudioBufferList *ioData) {
     // Pass audio to output callbacks
     for ( int i=0; i<channel->callbacks.count; i++ ) {

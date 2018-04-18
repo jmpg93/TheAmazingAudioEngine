@@ -41,7 +41,7 @@ extern "C" {
  *
  *  To use, create an instance, then add it to the audio controller.
  */
-
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEAudioFilePlayer : AEAudioUnitChannel
 
 /*!

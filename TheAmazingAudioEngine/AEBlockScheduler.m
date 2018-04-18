@@ -187,6 +187,7 @@ struct _schedule_t {
 }
 
 struct _timingReceiverFinishSchedule_t { struct _schedule_t schedule; void *THIS; };
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void timingReceiverFinishSchedule(void *userInfo, int len) {
     struct _timingReceiverFinishSchedule_t *arg = (struct _timingReceiverFinishSchedule_t*)userInfo;
     __unsafe_unretained AEBlockScheduler *THIS = (__bridge AEBlockScheduler*)arg->THIS;
@@ -201,6 +202,7 @@ static void timingReceiverFinishSchedule(void *userInfo, int len) {
     CFBridgingRelease(arg->schedule.identifier);
 }
 
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 static void timingReceiver(__unsafe_unretained AEBlockScheduler *THIS,
                            __unsafe_unretained AEAudioController *audioController,
                            const AudioTimeStamp     *time,

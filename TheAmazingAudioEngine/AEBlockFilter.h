@@ -57,6 +57,7 @@ typedef void (^AEBlockFilterBlock)(AEAudioFilterProducer producer,
 /*!
  * Block filter: Utility class to allow use of a block to filter audio
  */
+NS_EXTENSION_UNAVAILABLE_IOS("Not available for extensions")
 @interface AEBlockFilter : NSObject <AEAudioFilter>
 
 /*!
